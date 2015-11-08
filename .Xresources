@@ -5,32 +5,56 @@ Xft.hintstyle:		hintslight
 Xft.hinting: 		true
 Xft.antialias:		true
 Xft.rgba:		rgb
-Xft.dpi:		104
+Xft.dpi:		96
 
-! Color-scheme : Relic Dark
-! Author       : stark <stark@openmailbox.org>
+!Color scheme
 
-*background: #1D2426
-*foreground: #8FA388
+! special
+*.foreground:   #a2a2a2
+*.background:   #282828
+*.cursorColor:  #a2a2a2
 
-! Alternate foreground
-!*foreground: #AB9C71
+! black
+*.color0:       #555555
+*.color8:       #888888
 
-*cursorColor: #BE5E1E
+! red
+*.color1:       #9c3528
+*.color9:       #d64937
 
-*color0:  #39474A
-*color1:  #986345
-*color2:  #788249
-*color3:  #9B6A46
-*color4:  #3E5951
-*color5:  #B9924A
-*color6:  #5d796a
-*color7:  #977D5E
-*color8:  #4C5F63
-*color9:  #B07350
-*color10: #869151
-*color11: #AF6B42
-*color12: #567A6E
-*color13: #D69D55
-*color14: #668574
-*color15: #AB9C71
+! green
+*.color2:       #61bc3b
+*.color10:      #86df5d
+
+! yellow
+*.color3:       #f3b43a
+*.color11:      #fdd75a
+
+! blue
+*.color4:       #0d68a8
+*.color12:      #0f75bd
+
+! magenta
+*.color5:       #744560
+*.color13:      #9e5e83
+
+! cyan
+*.color6:       #288e9c
+*.color14:      #37c3d6
+
+! white
+*.color7:       #a2a2a2
+*.color15:      #f9f9f9
+
+! Urxvt
+*.font:			xft:Inconsolata:pixelsize=10
+URxvt.boldFont:			xft:Inconsolata:pixelsize=10
+URxvt.italicFont:		xft:Inconsolata:pixelsize=10
+URxvt.boldItalicFont:		xft:Inconsolata:pixelsize=10
+URxvt.geometry:			80x24
+URxvt.internalBorder:		9
+URxvt.modifier:			alt
+URxvt.mouseWheelScrollPage:	true
+URxvt.scrollBar:		false
+URxvt.depth:			32
+URxvt.background:		[80]#000000
