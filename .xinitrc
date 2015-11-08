@@ -1,40 +1,22 @@
-x#!/bin/sh
+#!/bin/sh
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.resources
+
 # merge in defaults and keymaps
-
 if [ -f $sysresources ]; then
-
-
-
-
-
-
-
     xrdb -merge $sysresources
-
 fi
-
 if [ -f $sysmodmap ]; then
     xmodmap $sysmodmap
 fi
-
 if [ -f "$userresources" ]; then
-
-
-
-
-
-
-
     xrdb -merge "$userresources"
-
 fi
-
 if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
@@ -48,16 +30,12 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
+xrdb -q
+xset b off &
+setxkbmap fr &
 pulseaudio --start &
 xscreensaver -no-splash &
-
-#mv ~/.xlog ~/.xlog
-#exec awesome &> ~/.xlog
+bmpanel2 --theme=momo &
 
 compton -fbcCz -r 8 -o 1.0 -l -11 -t -11 -I 0.06 -O 0.06 -D 10 --focus-exclude "!class_g *?= 'sakura'" --inactive-opacity-override --shadow-exclude-reg 'x20+0+0' --opacity-rule "90:class_g *?= 'sakura'" -i 0.65 &
-
-
-sxhkd &
-exec bspwm
-
-#exec gnome-session
+exec $1

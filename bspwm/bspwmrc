@@ -1,13 +1,11 @@
 #! /bin/sh
 
-panel &
 sakura &
 compton -fbcCz -r 8 -o 1.0 -l -11 -t -11 -I 0.06 -O 0.06 -D 10 --focus-exclude "!class_g *?= 'sakura'" --inactive-opacity-override --shadow-exclude-reg 'x20+0+0' --opacity-rule "90:class_g *?= 'sakura'" -i 0.65
 
 
 # Set background
-feh --bg-fill ~/.wallpaper/mountain.jpg &
-
+feh --bg-fill ~/.wallpaper/clouds_vintage.jpg &
 
 # Set colors
 
@@ -20,7 +18,7 @@ bspc config urgent_border_color "#79CDCD"
 
 bspc config border_width        2
 bspc config window_gap		12
-bspc config top_padding		10
+bspc config top_padding		30
 bspc config left_padding	0
 bspc config right_padding	0
 bspc config bottom_padding	0
@@ -30,16 +28,6 @@ bspc config borderless_monocle  true
 bspc config gapless_monocle     true
 bspc config focus_by_distance   true
 
-bspc monitor -d 1 2 3 Chat Web
-bspc monitor VGA1 -d one
-#bspc monitor -d • • • • • •
-
-# Rules
-
-bspc rule -a Skype desktop=^4 floating=off
-bspc rule -a google-chrome-stable desktop=^5 floating=on
-bspc rule -a weechat desktop=^4 floating=off
-
-# autostart
-
-# sakura -e weechat &
+#bspc monitor -d 1 2 3 4 Web
+#bspc monitor VGA1 -d one
+bspc monitor -d • • • • • •
