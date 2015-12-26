@@ -1,9 +1,16 @@
 # Dotfiles
+---
 
-Wm: Bspwm
+My arch settings and custom configuration.
 
-Panel: tint3
+## Screenshot
+
+![Screenshot](https://github.com/giardb/dotfiles/blob/master/wall.png?raw=true)
+
+## Setup
+
+Wm: [Bspwm](https://github.com/baskerville/bspwm)
+
+Panel: [tint3](https://github.com/tmathmeyer/tint3)
 
 term: rxvt-unicode
-
-!(https://github.com/giardb/dotfiles/blob/master/wall.png)
