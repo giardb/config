@@ -1,4 +1,9 @@
-# config
+# Dotfiles
 
 Wm: Bspwm
-Panel: Bmpanel2
+
+Panel: tint3
+
+term: rxvt-unicode
+
+!(https://github.com/giardb/dotfiles/blob/master/wall.png)
