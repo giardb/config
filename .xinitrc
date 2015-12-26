@@ -35,7 +35,9 @@ xset b off &
 setxkbmap fr &
 pulseaudio --start &
 xscreensaver -no-splash &
-bmpanel2 --theme=momo &
+exec tint3 &
+xsetroot -cursor_name left_ptr&
 
-compton -fbcCz -r 8 -o 1.0 -l -11 -t -11 -I 0.06 -O 0.06 -D 10 --focus-exclude "!class_g *?= 'sakura'" --inactive-opacity-override --shadow-exclude-reg 'x20+0+0' --opacity-rule "90:class_g *?= 'sakura'" -i 0.65 &
+compton -fbcCz -r 8 -o 1.0 -l -11 -t -11 -I 0.06 -O 0.06 -D 10 --focus-exclude "!class_g *?= 'urxvt'" --inactive-opacity-override --shadow-exclude-reg 'x20+0+0' --opacity-rule "90:class_g *?= 'urxvt'" -i 0.65 &
+
 exec $1

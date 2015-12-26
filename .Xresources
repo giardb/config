@@ -47,10 +47,10 @@ Xft.dpi:		96
 *.color15:      #f9f9f9
 
 ! Urxvt
-*.font:			xft:Inconsolata:pixelsize=10
-URxvt.boldFont:			xft:Inconsolata:pixelsize=10
-URxvt.italicFont:		xft:Inconsolata:pixelsize=10
-URxvt.boldItalicFont:		xft:Inconsolata:pixelsize=10
+*.font:				xft:Inconsolata:pixelsize=13
+*.boldFont:			xft:InconsolataBold:pixelsize=13
+*.italicFont:			xft:InconsolataItalic:pixelsize=13
+*.boldItalicFont:		xft:InconsolataBoldItalic:pixelsize=13
 URxvt.geometry:			80x24
 URxvt.internalBorder:		9
 URxvt.modifier:			alt
