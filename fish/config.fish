@@ -10,24 +10,26 @@ set -gx PATH $GOPATH $PATH
 #####ALIAS#####
 alias emacs "emacs -nw"
 alias ne "emacs -nw"
-alias co "wpa_supplicant -iwlo1 -c /etc/wpa_supplicant/wpa_supplicant.conf -B"
-alias rc "ne ~/.config/bspwm/bspwmrc"
+alias bspwmrc "ne ~/.config/bspwm/bspwmrc"
 alias fishrc "ne ~/.config/fish/config.fish"
+alias sxhkdrc "ne ~/.config/sxhkd/sxhkdrc"
 alias wmkey "cat ~/.config/sxhkd/sxhkdrc"
+alias sune "sudo emacs -nw"
+
 
 #####ALIAS GIT#####
-alias gitad "git add"
-alias gitco "git commit -am"
-alias gitcl "git clone"
-alias gitpl "git pull"
-alias gitpu "git push origin master"
-alias gitst "git status"
+alias add "git add"
+alias commit "git commit -am"
+alias clone "git clone"
+alias pull "git pull"
+alias push "git push origin master"
 
 ####PROMPT####
 function fish_prompt
 	 set_color 625721
 	 set -l git_branch (git branch ^/dev/null | sed -n '/\* /s///p')
-	 echo -n (whoami)' ['(prompt_pwd)'] ['"$git_branch"'] '
+	 set -l battery (battery | cut -d' ' -f2)
+	 echo -n (whoami)' ['(prompt_pwd)'] ['"$git_branch"'] ['"$battery"'] '
 	end
 
 ####COLOR_MAN_PAGE####
