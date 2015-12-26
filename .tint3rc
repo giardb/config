@@ -1,0 +1,47 @@
+[[bar]]
+  fontcolor #ffffff
+  fontname Droid
+  options debug
+  left
+    desktops
+  center
+    time
+    date
+  right
+    weather
+    battery
+
+# %N -> Name of the desktop
+[desktops]
+  id workspace
+  format %N
+  active:background #b45f04
+
+# split time and date, looks better on a dual monitor system
+[time]
+  id clock
+  timeout 0
+  format %T
+#  shell bg.sh
+
+[date]
+  id clock
+  format %a - %d
+
+[weather]
+  id weather
+  format %W, %C°C
+  source Strasbourg,france
+
+[battery]
+  id scale
+  source battery BAT0
+  high_font #00FF00
+  med_font #FFFF00
+  low_font #222222
+  low_color #FF0000
+
+[volume]
+  id scale
+  source alsa 0 Master
+  shell amixer set Master toggle
