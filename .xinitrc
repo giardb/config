@@ -1,11 +1,12 @@
 #!/bin/sh
 
+
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 
-[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.resources
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
 # merge in defaults and keymaps
 if [ -f $sysresources ]; then
@@ -34,10 +35,11 @@ xrdb -q
 xset b off &
 setxkbmap fr &
 pulseaudio --start &
+~/.fehbg &
 xscreensaver -no-splash &
-exec tint3 &
+#exec tint3 &
 xsetroot -cursor_name left_ptr&
-
-compton -fbcCz -r 8 -o 1.0 -l -11 -t -11 -I 0.06 -O 0.06 -D 10 --focus-exclude "!class_g *?= 'urxvt'" --inactive-opacity-override --shadow-exclude-reg 'x20+0+0' --opacity-rule "90:class_g *?= 'urxvt'" -i 0.65 &
+compton --blur-background --blur-kern 7x7box &
+sxhkd &
 
 exec $1

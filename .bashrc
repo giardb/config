@@ -7,12 +7,13 @@
 
 export EDITOR="emacs -nw"
 export USER_NICKNAME="Boris GIARD"
+export LOGIN="giard_b"
+export PATH=$PATH ":~/scripts"
 
 #Alias
 alias ls='ls --color=auto'
 alias ll='ls -l'
 alias la='ll -a'
-alias emacs='emacs -nw'
 alias ne='emacs'
 alias rc='ne .config/awesome/rc.lua'
 alias xd='xscreensaver-demo'

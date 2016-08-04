@@ -54,6 +54,7 @@ plugins=(git)
 # User configuration
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.npm-global/bin:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -80,7 +81,7 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias zshconfig=" ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias e="emacs -nw"
@@ -94,6 +95,9 @@ alias pull="git pull"
 alias up="sudo pacman -Syu "
 alias ddate="watch -t -n 1 date"
 alias bbattery="watch -t -n 1 battery"
+alias idea="e ~/.idea"
+alias ddf="watch -t -n 1 df -h"
+alias tmux="tmux -2"
 
 export USER_NICKNAME="Boris Giard"
 export JAVA_HOME="/usr/lib/jvm/java-8-jdk"

@@ -10,41 +10,84 @@ Xft.dpi:		96
 !Color scheme
 
 ! special
-*.foreground:   #a2a2a2
-*.background:   #282828
-*.cursorColor:  #a2a2a2
+*.foreground:   #c5c8c6
+*.background:   #1d1f21
+*.cursorColor:  #c5c8c6
 
 ! black
-*.color0:       #555555
-*.color8:       #888888
+*.color0:       #282a2e
+*.color8:       #373b41
 
 ! red
-*.color1:       #9c3528
-*.color9:       #d64937
+*.color1:       #a54242
+*.color9:       #cc6666
 
 ! green
-*.color2:       #61bc3b
-*.color10:      #86df5d
+*.color2:       #8c9440
+*.color10:      #b5bd68
 
 ! yellow
-*.color3:       #f3b43a
-*.color11:      #fdd75a
+*.color3:       #de935f
+*.color11:      #f0c674
 
 ! blue
-*.color4:       #0d68a8
-*.color12:      #0f75bd
+*.color4:       #5f819d
+*.color12:      #81a2be
 
 ! magenta
-*.color5:       #744560
-*.color13:      #9e5e83
+*.color5:       #85678f
+*.color13:      #b294bb
 
 ! cyan
-*.color6:       #288e9c
-*.color14:      #37c3d6
+*.color6:       #5e8d87
+*.color14:      #8abeb7
 
 ! white
-*.color7:       #a2a2a2
-*.color15:      #f9f9f9
+*.color7:       #707880
+*.color15:      #c5c8c6
+
+!!!!! OLD !!!!!
+! special
+!*.foreground:   #5d5b47
+!*.foreground:	#ffffff
+!*.background:   #000000
+!*.cursorColor:  #343323
+
+! black
+!*.color0:       #293b3b
+!*.color8:       #344040
+
+! red
+!*.color1:       #bf5357
+!*.color9:       #bf6367
+
+! green
+!*.color2:       #41a551
+!*.color10:      #51a55f
+
+! yellow
+!*.color3:       #aea64f
+!*.color11:      #aea75d
+
+! blue
+!*.color4:       #416ea5
+!*.color12:      #5177a5
+
+! magenta
+!*.color5:       #bf6053
+!*.color13:      #bf6e63
+
+! cyan
+!*.color6:       #714da5
+!*.color14:      #7859a5
+
+! white
+!*.color7:       #4b4933
+!*.color15:      #2b2b1e
+
+!*.color7:       #876868
+!*.color15:      #876f6f
+
 
 ! Urxvt
 *.font:				xft:Inconsolata:pixelsize=13
@@ -54,7 +97,7 @@ Xft.dpi:		96
 URxvt.geometry:			80x24
 URxvt.internalBorder:		9
 URxvt.modifier:			alt
-URxvt.mouseWheelScrollPage:	true
+URxvt.mouseWheelScrollPage:	false
 URxvt.scrollBar:		false
 URxvt.depth:			32
-URxvt.background:		[80]#000000
+URxvt.background:		[80]#1c1c1c
