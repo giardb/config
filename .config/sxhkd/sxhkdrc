@@ -58,7 +58,7 @@ super + space
 
 ## lock
 XF86Sleep
-	xscreensaver-command --lock > /dev/null
+	lockscreen.sh
 
 ## Sound
 XF86AudioLowerVolume

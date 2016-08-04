@@ -1,0 +1,20 @@
+#!/bin/sh
+## dpd for dpd in /home/giab/scripts
+## 
+## Made by Boris GIARD
+## Login   <giard_b@epitech.net>
+## 
+## Started on  Thu Oct 22 15:06:36 2015 Boris GIARD
+## Last update Wed Mar 16 20:15:24 2016 Boris Giard
+##
+
+RED="\\033[1;31m"
+GREEN="\\033[1;32m"
+BOLD="\\033[1m"
+RESET="\\033[0m"
+
+mkdir -p src && echo -e "Create directory ""$BOLD""src""$RESET"": ""$GREEN""Done""$RESET" "." || echo -e "$RED""src fail""$RESET"
+mkdir -p include && echo -e "Create directory ""$BOLD""include""$RESET"": ""$GREEN""Done""$RESET""." || echo -e "$RED""include fail""$RESET"
+cp -rfu ~/.Makefile ./Makefile && echo -e "copy ""$BOLD""Makefile""$RESET"": ""$GREEN""Done""$RESET""." || echo -e "$RED""Makefile fail""$RESET"
+cp -rfu ~/.gitignore . && echo -e "copy ""$BOLD""Gitignore""$RESET"": ""$GREEN""Done""$RESET""." || echo -e "$RED""Gitignore fail""$RESET"
+echo -e "$BOLD""Dont forget the header of your Makefile.""$RESET"

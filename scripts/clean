@@ -1,0 +1,2 @@
+#!/bin/sh
+find . -name *#* -type f -writable -delete -o -type f -writable -name *~* -delete 2> /dev/null
