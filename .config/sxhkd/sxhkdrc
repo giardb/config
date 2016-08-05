@@ -54,7 +54,7 @@ super + e
         google-chrome-stable > /dev/null
 
 super + space
-	dmenu_run
+	dmenu.sh
 
 ## lock
 XF86Sleep
