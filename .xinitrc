@@ -40,6 +40,7 @@ xscreensaver -no-splash &
 #exec tint3 &
 xsetroot -cursor_name left_ptr&
 compton --blur-background --blur-kern 7x7box &
-sxhkd &
+
+sxhkd -c /home/giab/.config/sxhkd/sxhkdrc &
 
 exec $1
