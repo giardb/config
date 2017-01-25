@@ -36,11 +36,9 @@ xset b off &
 setxkbmap fr &
 pulseaudio --start &
 ~/.fehbg &
-#exec tint3 &
-xsetroot -cursor_name left_ptr&
+xsetroot -cursor_name left_ptr &
 compton --blur-background --blur-kern 7x7box &
 xsettingsd &
-
 sxhkd &
 
 exec $1
