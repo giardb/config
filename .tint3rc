@@ -8,7 +8,7 @@
     time
     date
   right
-    weather
+#    weather
     battery
 
 # %N -> Name of the desktop
@@ -20,9 +20,9 @@
 # split time and date, looks better on a dual monitor system
 [time]
   id clock
-  timeout 0
+  timeout 1
   format %T
-#  shell bg.sh
+  shell bg.sh
 
 [date]
   id clock
