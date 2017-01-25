@@ -8,6 +8,8 @@ for i in .*; do
 	;;
 	.gitignore)
 	;;
+	.git)
+	;;
 	*)
 	    ln -s ${PWD}/${i} ${HOME}/${i}
 	    ;;

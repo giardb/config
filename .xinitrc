@@ -36,11 +36,11 @@ xset b off &
 setxkbmap fr &
 pulseaudio --start &
 ~/.fehbg &
-xscreensaver -no-splash &
 #exec tint3 &
 xsetroot -cursor_name left_ptr&
 compton --blur-background --blur-kern 7x7box &
+xsettingsd &
 
-sxhkd -c /home/giab/.config/sxhkd/sxhkdrc &
+sxhkd &
 
 exec $1

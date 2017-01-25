@@ -9,7 +9,7 @@
     date
   right
     weather
-    battery
+
 
 # %N -> Name of the desktop
 [desktops]
