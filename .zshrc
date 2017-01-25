@@ -55,6 +55,7 @@ plugins=(git)
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.npm-global/bin:$PATH
+export PATH=$HOME/repo/dotfiles/script:$PATH
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -84,8 +85,7 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig=" ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias e="emacs -nw"
-alias ne="emacs -nw"
+alias e="vim"
 alias ls="ls --color=auto"
 alias add="git add --all"
 alias commit="git commit -m"
@@ -99,10 +99,10 @@ alias idea="e ~/.idea"
 alias ddf="watch -t -n 1 df -h"
 alias tmux="tmux -2"
 
+export EDITOR="vim"
 export USER_NICKNAME="Boris Giard"
 export JAVA_HOME="/usr/lib/jvm/java-8-jdk"
 export LOGIN="giard_b"
-export INSTANT_MUSIC_FOLDER="/home/giab/repo/Instant-Music-Downloader/"
 export GDK_CORE_DEVICE_EVENTS=1
 export PAGER="most"
 #export ANDROID_HOME="/home/giab/Android/Sdk"

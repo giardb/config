@@ -36,12 +36,9 @@ xset b off &
 setxkbmap fr &
 pulseaudio --start &
 ~/.fehbg &
-xscreensaver -no-splash &
-tint3 &
 xsetroot -cursor_name left_ptr &
 compton --blur-background --blur-kern 7x7box &
 xsettingsd &
-
 sxhkd &
-urxtv &
+
 exec $1

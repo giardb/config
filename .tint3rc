@@ -8,7 +8,7 @@
     time
     date
   right
-#    weather
+    weather
     battery
 
 # %N -> Name of the desktop
