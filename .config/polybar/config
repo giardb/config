@@ -48,8 +48,8 @@ font-0 = fixed:pixelsize=10
 font-1 = unifont:fontformat=truetype:size=6:heavy;-2
 font-2 = WunconSiji:pixelsize=10
 
-modules-left = bspwm xwindow
-modules-center =
+modules-left = bspwm
+modules-center = spotify
 modules-right = volume memory cpu temperature date
 
 tray-position = right
@@ -63,10 +63,6 @@ wm-restack = bspwm
 
 scroll-up = bspwm-desknext
 scroll-down = bspwm-deskprev
-
-[module/xwindow]
-type = internal/xwindow
-label = %title:0:30:...%
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -110,10 +106,16 @@ label-empty = %index%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
-[module/mpd]
-type = internal/mpd
+[module/spotify]
+type = custom/script
 
-format-online = <label-song>  <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>
+exec = ~/repo/dotfiles/scripts/spot-name-song.sh %artist% - %title%
+
+tail = true
+
+interval = 2
+
+format-online = <label-song> <icon-prev> <icon-seekb> <icon-stop> <toggle> <icon-seekf> <icon-next>  <icon-repeat> <icon-random>
 
 label-song-maxlen = 25
 label-song-ellipsis = true
@@ -170,7 +172,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface =
+interface = enp3s0
 interval = 3.0
 
 format-connected-underline = #55aa55
@@ -184,7 +186,7 @@ label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
-interval = 5
+interval = 0.5
 
 date =
 date-alt = " %Y-%m-%d"
@@ -234,9 +236,9 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-underline = #0a6cf5
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+format-warn-underline = #f50a4d
 
 label = %temperature%
 label-warn = %temperature%
