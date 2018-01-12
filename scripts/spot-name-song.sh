@@ -1,7 +1,7 @@
 #!/bin/sh
 main() {
   if ! pgrep -x spotify >/dev/null; then
-    echo "spotify is off"; exit
+    echo "♫"; exit
   fi
 
   cmd="org.freedesktop.DBus.Properties.Get"
@@ -12,10 +12,9 @@ main() {
     /org/mpris/MediaPlayer2 org.freedesktop.DBus.Properties.Get string:${domain}.Player string:Metadata)
 
   artist=$(echo "$meta" | sed -nr '/xesam:artist"/,+2s/^ +string "(.*)"$/\1/p' | tail -1)
-  album=$(echo "$meta" | sed -nr '/xesam:album"/,+2s/^ +variant +string "(.*)"$/\1/p' | tail -1)
   title=$(echo "$meta" | sed -nr '/xesam:title"/,+2s/^ +variant +string "(.*)"$/\1/p' | tail -1)
 
-  echo "${*:-%artist% - %title%}" | sed "s/%artist%/$artist/g;s/%title%/$title/g;s/%album%/$album/g"
+  echo "♫ ${*:-%artist% - %title%}" | sed "s/%artist%/$artist/g;s/%title%/$title/g"
 }
 
 main "$@"

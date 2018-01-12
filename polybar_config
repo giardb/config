@@ -1,0 +1,317 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+background = #0222
+background-alt = #0444
+;foreground = #ffffff
+foreground = #a2c2cf
+foreground-alt = #55
+primary = #016f90
+secondary = #e60053
+alert = #bd2c40
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+[bar/bar-top]
+monitor = ${env:MONITOR:eDP1}
+width = 1905
+height = 27
+offset-x = 5
+offset-y = 0
+
+;background = ${xrdb:color7}
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+overline-size = 2
+overline-color = #0000
+underline-size = 2
+underline-color = #0000
+
+border-bottom-size = 2
+border-bottom-color = #0000
+
+padding-left = 0
+padding-right = 2
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = fixed:pixelsize=10
+font-1 = unifont:fontformat=truetype:size=6:heavy;-2
+font-2 = WunconSiji:pixelsize=10
+font-3 = FontAwesome:pixelsize=14;0
+
+modules-left = bspwm
+modules-center = spotify date
+modules-right = rootfs tmpfs network volume memory cpu temperature battery
+
+;tray-position = right
+;tray-padding = 2
+;tray-transparent = true
+;tray-background = #0063ff
+
+wm-restack = bspwm
+
+;override-redirect = true
+
+;scroll-up = bspwm-desknext
+;scroll-down = bspwm-deskprev
+
+[module/rootfs]
+type = internal/fs
+interval = 25
+
+spacing = 4
+
+mount-0 = /
+
+label-mounted = ⎔ %percentage_used%%
+
+[module/tmpfs]
+type = internal/fs
+interval = 25
+
+spacing = 4
+
+mount-0 = /tmp
+
+label-mounted = ⌬ %percentage_used%%
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 2
+
+label-occupied = %index%
+label-occupied-padding = 2
+label-urgent = %index%!
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 2
+
+label-empty = %index%
+label-empty-foreground = #555555
+label-empty-padding = 2
+
+[module/spotify]
+type = custom/script
+
+exec = ~/repo/dotfiles/scripts/spot-name-song.sh \[%artist%\] %title%
+tail = true
+interval = 5
+label-song-maxlen = 25
+label-song-ellipsis = true
+toggle-on-foreground = ${colors.primary}
+toggle-off-foreground = #66
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.primary}
+;format-underline = #f90000
+label = %percentage%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.primary}
+;format-underline = #4bffdc
+label = %percentage_used%%
+
+[module/network]
+type = internal/network
+interface = wlo1
+
+; Seconds to sleep between updates
+; Default: 1
+interval = 3.0
+
+; Test connectivity every Nth update
+; A value of 0 disables the feature
+; NOTE: Experimental (needs more testing)
+; Default: 0
+;ping-interval = 3
+
+; @deprecated: Define min width using token specifiers (%downspeed:min% and %upspeed:min%)
+; Minimum output width of upload/download rate
+; Default: 3
+udspeed-minwidth = 5
+
+; Accumulate values from all interfaces
+; when querying for up/downspeed rate
+; Default: false
+accumulate-stats = true
+; Available tags:
+;   <label-connected> (default)
+;   <ramp-signal>
+format-connected-prefix = "⎇ "
+format-connected = <label-connected>
+format-connected-prefix-foreground = ${colors.primary}
+
+; Available tags:
+;   <label-disconnected> (default)
+format-disconnected = <label-disconnected>
+
+; Available tags:
+;   <label-connected> (default)
+;   <label-packetloss>
+;   <animation-packetloss>
+format-packetloss = <animation-packetloss> <label-connected>
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %upspeed%   [wireless+wired]
+;   %downspeed% [wireless+wired]
+;   %linkspeed% [wired]
+; Default: %ifname% %local_ip%
+label-connected = %essid%
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+; Default: (none)
+label-disconnected = ⎯
+
+; Available tokens:
+;   %ifname%    [wireless+wired]
+;   %local_ip%  [wireless+wired]
+;   %essid%     [wireless]
+;   %signal%    [wireless]
+;   %linkspeed% [wired]
+; Default: (none)
+;label-packetloss = %essid%
+;label-packetloss-foreground = #eefafafa
+
+; Only applies if <animation-packetloss> is used
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = #ffa64c
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+[module/eth]
+type = internal/network
+interface = enp3s0
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-foreground-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/date]
+type = internal/date
+interval = 0.5
+
+date = ""
+date-alt = "☷ %Y-%m-%d"
+
+time = " %H:%M"
+time-alt = " %H:%M:%S"
+
+label = %date% %time%
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume> <bar-volume>
+label-volume = "♪ "
+label-volume-foreground = ${colors.primary}
+
+format-muted-prefix = " "
+format-muted-foreground = ${colors.primary}
+label-muted = sound muted
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #bfccd4
+bar-volume-foreground-1 = #bfccd4
+bar-volume-foreground-2 = #bfccd4
+bar-volume-foreground-3 = #bfccd4
+bar-volume-foreground-4 = #bfccd4
+bar-volume-foreground-5 = #1999bc
+bar-volume-foreground-6 = #0a6b8c
+bar-volume-gradient = false
+bar-volume-indicator = │
+bar-volume-indicator-font = 3
+bar-volume-indicator-foreground = #974c37
+bar-volume-fill = ─
+bar-volume-fill-font = 3
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.foreground-alt}
+
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+;format-underline = #0a6cf5
+format-warn = <ramp> <label-warn>
+format-warn-underline = #f50a4d
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.primary}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 98
+time-format = %H:%M
+
+label-discharging = %percentage% %time%
+
+format-charging = <animation-charging> <label-charging>
+;format-charging-underline = #ffb52a
+
+format-discharging = <ramp-capacity> <label-discharging>
+;format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.primary}
+;format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.foreground}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.foreground}
+animation-charging-framerate = 750
+
+; vim:ft=dosini

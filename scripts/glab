@@ -1,0 +1,22 @@
+#!/bin/sh
+
+source ./glab_lib/update.sh
+
+# function update() {
+#   echo "Doing an update"
+# }
+
+if [[ $# > 0 ]]; then
+  echo "Running Glab..."
+  case $1 in
+    up)
+      update
+      break
+    ;;
+
+    *)
+      echo "Nothing to do"
+    ;;
+  esac
+fi
+echo "Done."

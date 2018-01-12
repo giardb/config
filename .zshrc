@@ -30,7 +30,7 @@ HYPHEN_INSENSITIVE="true"
  ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
- COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -53,9 +53,14 @@ plugins=(git)
 
 # User configuration
 
+export GOPATH=$HOME/go
+export ANDROID_HOME=$HOME/.Android/Sdk
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/.npm-global/bin:$PATH
-export PATH=$HOME/repo/dotfiles/script:$PATH
+export PATH=$HOME/repo/dotfiles/scripts:$PATH
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$ANDROID_HOME/tools
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -64,11 +69,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='vim'
+ else
+   export EDITOR='mvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -85,24 +90,30 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig=" ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias e="vim"
+alias e="nvim"
 alias ls="ls --color=auto"
-alias add="git add --all"
+alias add="git add"
+alias addp="git add -p"
 alias commit="git commit -m"
-alias push="git push origin master"
-alias ll="ls -l --color=auto"
-alias pull="git pull"
+alias stash="git stash"
+alias push="git push origin "
+alias ll="ls -lh --color=auto"
 alias up="sudo pacman -Syu "
-alias ddate="watch -t -n 1 date"
-alias bbattery="watch -t -n 1 battery"
-alias idea="e ~/.idea"
-alias ddf="watch -t -n 1 df -h"
+alias df="df -h"
 alias tmux="tmux -2"
 
-export EDITOR="vim"
 export USER_NICKNAME="Boris Giard"
-export JAVA_HOME="/usr/lib/jvm/java-8-jdk"
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk"
 export LOGIN="giard_b"
 export GDK_CORE_DEVICE_EVENTS=1
 export PAGER="most"
-#export ANDROID_HOME="/home/giab/Android/Sdk"
+export VISUAL="vim"
+
+export PATH="$PATH:/home/giab/.labocker/bin"
+
+###-tns-completion-start-###
+if [ -f /home/giab/.tnsrc ]; then
+    source /home/giab/.tnsrc
+fi
+###-tns-completion-end-###
+
