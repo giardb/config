@@ -1,0 +1,26 @@
+### Output configuration
+#
+# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
+output * bg /home/giab/.config/wallpaper/dragonborn_mountain.jpg fill
+
+set $laptop eDP-1
+
+bindswitch --reload --locked lid:on output $laptop disable
+bindswitch --reload --locked lid:off output $laptop enable
+
+output eDP-1 {
+	mode 3840x2160
+	scale 2
+	pos 0 0
+}
+
+output "Goldstar Company Ltd 24EN33 302NDQA5Q908" {
+	mode 1920x1080
+	pos 1920 0
+}
+
+output DP-7 {
+	enable
+	mode 1920x1080
+	pos 3840 0
+}

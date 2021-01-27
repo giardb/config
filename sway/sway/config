@@ -1,0 +1,164 @@
+# Config for sway
+# Read `man 5 sway` for a complete reference.
+
+# TODO
+# - Look about mako (notif)
+# - https://gitlab.com/snakedye/wofer look about this for a wofi wrapper
+
+exec /usr/lib/pam_kwallet_init
+#exec kanshi
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Default apps
+set $term termite
+set $menu wofi | wofi --show=drun --allow-images | xargs swaymsg exec --
+
+
+### Idle configuration
+#
+# Example configuration:
+#
+# exec swayidle -w \
+#          timeout 300 'swaylock -f -c 000000' \
+#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+#          before-sleep 'swaylock -f -c 000000'
+#
+# This will lock your screen after 300 seconds of inactivity, then turn off
+# your displays after another 300 seconds, and turn your screens back on when
+# resumed. It will also lock your screen before your computer goes to sleep.
+
+### Input
+#
+# Example configuration:
+#
+#   input "2:14:SynPS/2_Synaptics_TouchPad" {
+#       dwt enabled
+#       tap enabled
+#       natural_scroll enabled
+#       middle_emulation enabled
+#   }
+#
+# You can get the names of your inputs by running: swaymsg -t get_inputs
+# Read `man 5 sway-input` for more information about this section.
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec termite
+
+    # Kill focused window
+    bindsym $mod+Shift+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resizer
+
+#
+# Status Bar:
+#
+
+# Read `man 5 sway-bar` for more information about this section.
+
+exec swaybar
+
+bar {
+    position top
+    swaybar_command waybar
+}
+
+#
+# gaps
+#
+gaps inner 10
+#gaps outer 10
+
+#
+# Titlebars
+#
+#default_border pixel
+#default_floating_border pixel
+#hide_edge_borders smart
+
+#
+# Colors #93cee9
+#
+# class                     border  backgr. text  indicator child_border
+    client.focused          #2e3440 #2e3440 #d8dee9 #5e81ac #5e81ac
+    client.focused_inactive #3b4252 #3b4252 #d8dee9 #4c566a #4c566a
+    client.unfocused        #434c5e #434c5e #d8dee9 #4c566a #4c566a
+    client.urgent           #bf616a #bf616a #d8dee9 #d08770 #d08770
+
+#
+# Includes config files
+#
+include io/*
+include shortcuts/*
+include rules/*
+
