@@ -1,0 +1,155 @@
+@import "nord.css";
+
+* {
+  /* border: none; */
+  font-size: 12px;
+  margin: 2px;
+  font-family:
+    Ubuntu Mono,
+    Cascadia Mono,
+    Product Sans,
+    Arial,
+    Helvetica,
+    sans-serif;
+}
+
+window#waybar {
+  background-color: transparent;
+  opacity: 0.9;
+}
+
+#workspaces {
+  border-radius: 10px;
+}
+
+#workspaces button,
+#tags button {
+  background-color: transparent;
+  font-size: 10px;
+  margin: 0;
+  color: @base06;
+}
+
+#workspaces button:hover,
+#tags button:hover {
+  box-shadow: inherit;
+  color: @base0A;
+}
+
+#workspaces button.focused,
+#tags button.focused {
+  color: @base09;
+}
+
+#workspaces button.urgent {
+  color: @base0B;
+}
+
+#tags button {
+  color: @base03;
+  font-weight: 600;
+}
+
+/* WIDGETS */
+#workspaces,
+#cpu,
+#memory,
+#disk,
+#clock,
+#idle_inhibitor,
+#custom-power,
+#bluetooth,
+#tray,
+#network,
+#pulseaudio,
+#temperature,
+#battery {
+  font-size: 14px;
+  background-color: @base00;
+  padding: 0px 14px 0px 14px;
+  margin: 2px 0px 2px 0px;
+}
+
+#disk {
+  color: @base0F;
+}
+
+#memory {
+  color: @base0C;
+}
+
+#cpu {
+  color: @base0B-light;
+}
+
+#network {
+  color: #9da98d;
+}
+
+#pulseaudio {
+  color: @base07;
+}
+
+#pulseaudio.muted {
+  color: @base03;
+}
+
+#temperature {
+  color: @base08;
+}
+
+#temperature.critical {
+  color: @base0D;
+}
+
+#battery {
+  color: @base07;
+  padding: 0px 8px 0px 8px;
+}
+
+#battery.charging {
+  color: @base06;
+}
+
+@keyframes blink {
+  to {
+    background-color: #eceff4;
+    color: @base00;
+  }
+}
+
+#battery.critical:not(.charging) {
+  background-color: @base0B;
+  color: @base06;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: @base00;
+}
+
+#idle_inhibitor {
+  font-size: 18px;
+  color: @base04;
+}
+
+#idle_inhibitor.activated {
+  color: @base02;
+}
+
+#clock {
+  font-size: 14px;
+}
+
+#tray {
+  color: @base07;
+}
+
+#bluetooth {
+  border-radius: 10 0 0 10;
+  color: green;
+}

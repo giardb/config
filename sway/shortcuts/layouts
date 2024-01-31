@@ -1,0 +1,36 @@
+#
+# Layout stuff:
+#
+
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+## Layout // Split horizontal // <mod><b> ##
+## Layout // Split vertical // <mod><v> ##
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Switch the current container between different layout styles
+## Layout // Switch to stacking mode // <mod><s> ##
+## Layout // Switch to tabbed mode // <mod><z> ##
+## Layout // Switch to split mode // <mod><e> ##
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+e layout toggle split
+
+# Make the current focus fullscreen
+## Layout // Focus fullscreen // <mod><f> ##
+bindsym $mod+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+## Layout // Toggle focus between tiling and floating // <mod><Shift><Space> ##
+bindsym $mod+Shift+space floating toggle
+
+# Swap focus between the tiling area and the floating area
+## Focus // Swap focus between tilling and floating window // <mod><Space> ##
+bindsym $mod+space focus mode_toggle
+
+# Move focus to the parent container
+## Focus // Move focus to the parent container // <mod><a> ##
+bindsym $mod+a focus parent
+

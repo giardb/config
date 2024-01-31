@@ -1,0 +1,14 @@
+#
+# Rules for workspaces based on output
+#
+
+workspace $ws1 DP-7 $laptop
+workspace $ws2 DP-6 $laptop
+workspace $ws3 $laptop DP-7
+workspace $ws4 $laptop DP-7
+workspace $ws5 $laptop DP-7
+workspace $ws6 $laptop DP-7
+workspace $ws7 $laptop DP-7
+workspace $ws8 $laptop DP-7
+workspace $ws9 $laptop DP-7
+
